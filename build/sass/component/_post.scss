@@ -1,0 +1,159 @@
+.post {
+    @include wrap;
+    @include wrap(gutter, 32);
+}
+
+.post-item {
+    @include col;
+    @include col(1, 2);
+    margin-bottom: 2rem;
+
+    > * {
+        height: 60vh;
+    }
+
+    &:nth-child(3n+1) {
+        @include col(1, 1);
+
+        > * {
+            height: 80vh;
+        }
+    }
+
+    @include breakpoint(md) {
+        @include col(1, 1);
+        margin-bottom: 1rem;
+
+        > * {
+            height: 20rem;
+            max-height: 20rem;
+        }
+    }
+}
+
+.post-background {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &:before {
+        @include position(absolute, 0);
+        background-color: rgba(black, 0.6);
+        content: '';
+    }
+}
+
+.post-text {
+    @include position(absolute, 0);
+    padding: 4rem;
+    z-index: 1;
+
+    .post-text-title {
+        color: white;
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+
+    .post-text-more {
+        @include position(absolute, null null 4rem 4rem);
+        font-size: 1rem;
+    }
+
+    .post-text-meta {
+        color: darken(white, 20%);
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        a {
+            color: $accent;
+        }
+    }
+
+    @include breakpoint(md) {
+        padding: 2rem;
+
+        .post-text-title {
+            font-size: 1.5rem;
+        }
+
+        .post-text-more {
+            font-size: 0.5rem;
+            bottom: 2rem;
+            left: initial;
+            right: 2rem;
+        }
+
+        .post-text-meta {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+.post-detail {
+    @include align-items(center);
+    @include display(flex);
+    @include justify-content(center);
+    height: calc(100vh - 100px);
+    margin-bottom: 2rem;
+
+    .post-text {
+        position: initial;
+        text-align: center;
+    }
+
+    @include breakpoint(md) {
+        height: calc(100vh - 110px)
+    }
+}
+
+.post-content {
+    @include font-droid-serif;
+    color: $read;
+    font-size: 18px;
+    line-height: 2rem;
+    margin: 0 auto;
+    max-width: 50rem;
+    text-align: justify;
+
+    a {
+        color: black;
+        border-color: black;
+
+        &:hover {
+            border-color: $accent;
+        }
+    }
+
+    img {
+        display: block;
+        margin-left: calc((50rem - 80vw) / 2);
+        width: 80vw;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    p ~ p {
+      margin-top: 1rem;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 18px;
+    }
+
+    @include breakpoint(md) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        padding: 0 2rem;
+
+        img {
+            margin-left: -2rem;
+            width: calc(100% + 4rem);
+        }
+    }
+}

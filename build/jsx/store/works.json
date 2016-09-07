@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Bank BTPN",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-btpn.png"
+  },
+  {
+    "name": "Praboo Dashboard",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS", "ReactJS"],
+    "image": "work-praboo.png"
+  },
+  {
+    "name": "Le Portier",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-leportier.png"
+  },
+  {
+    "name": "Samwon Shop",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-samwon-shop.png"
+  },
+  {
+    "name": "Pelangi Bridal",
+    "type": "Full Stack Development",
+    "tags": ["HTML", "CSS", "JS", "PHP"],
+    "image": "work-pelangibridal.png"
+  },
+  {
+    "name": "DS Hid",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-delapansatu.png"
+  },
+  {
+    "name": "Malindo Feedmill",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-malindo.png"
+  },
+  {
+    "name": "It's Me",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-itsme.png"
+  },
+  {
+    "name": "Palapamatics",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-palapamatics.png"
+  },
+  {
+    "name": "Capitol Group",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-capitolgroup.png"
+  },
+  {
+    "name": "United Tractors",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-klikut.png"
+  },
+  {
+    "name": "Golden Plantation",
+    "type": "Front End Development",
+    "tags": ["HTML", "CSS", "JS"],
+    "image": "work-goldenplantation.png"
+  }
+]

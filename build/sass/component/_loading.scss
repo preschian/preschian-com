@@ -1,0 +1,21 @@
+.loading {
+  @include position(fixed, 0);
+  @include transition-duration(0.4s);
+  @include transform(translatey(0));
+  background-color: white;
+  opacity: 1;
+  z-index: 9;
+
+  &.loading-hide {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .loading-text {
+    color: $primary;
+    font-style: italic;
+    margin: 0;
+    line-height: 100vh;
+    text-align: center;
+  }
+}
