@@ -1,15 +1,15 @@
 {
-  "name": "sass-react-gulp",
+  "name": "preschian-com",
   "version": "1.0.0",
-  "description": "Compile Sass and ReactJS using Gulp",
+  "description": "Revamp my blog using ReactJS",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/preschian/sass-react-gulp.git"
+    "url": "git://github.com/preschian/preschian-com.git"
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass:min && webpack -p"
+    "build": "gulp build"
   },
   "author": "Preschian Febryantara",
   "license": "MIT",
