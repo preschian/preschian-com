@@ -1,72 +1,72 @@
 .work {
-    @include wrap;
-    @include wrap(gutter, 32);
+  @include wrap;
+  @include wrap(gutter, 32);
 
+  .work-item {
+    @include col;
+    @include col(1, 4);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+
+    &:hover .work-image:before {
+      background-color: rgba(black, 0.4);
+    }
+  }
+
+  .work-image {
+    height: 30rem;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      @include position(absolute, 0);
+      @include transition-duration(0.2s);
+      background-color: rgba(black, 0.8);
+      content: '';
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .work-content {
+    @include position(absolute, null 2rem 1rem 2rem);
+
+    .work-title {
+      color: white;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .work-desc {
+      @include transition-duration(0.2s);
+      color: darken(white, 20%);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .work-tech {
+      background-color: $accent;
+      color: $primary;
+      display: inline-block;
+      font-size: 0.75rem;
+      margin-right: 0.25rem;
+      padding: 0 0.25rem;
+    }
+  }
+
+  @include breakpoint(sm) {
     .work-item {
-        @include col;
-        @include col(1, 4);
-        margin-bottom: 2rem;
-        overflow: hidden;
-        position: relative;
-
-        &:hover .work-image:before {
-            background-color: rgba(black, 0.4);
-        }
+      @include col(1, 1);
+      margin-bottom: 1rem;
     }
 
     .work-image {
-        height: 30rem;
-        overflow: hidden;
-        position: relative;
-
-        &:before {
-            @include position(absolute, 0);
-            @include transition-duration(0.2s);
-            background-color: rgba(black, 0.8);
-            content: '';
-        }
-
-        img {
-            width: 100%;
-        }
+      height: 20rem;
     }
-
-    .work-content {
-        @include position(absolute, null 2rem 1rem 2rem);
-
-        .work-title {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .work-desc {
-            @include transition-duration(0.2s);
-            color: darken(white, 20%);
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        .work-tech {
-            background-color: $accent;
-            color: $primary;
-            display: inline-block;
-            font-size: 0.75rem;
-            margin-right: 0.25rem;
-            padding: 0 0.25rem;
-        }
-    }
-
-    @include breakpoint(sm) {
-        .work-item {
-            @include col(1, 1);
-            margin-bottom: 1rem;
-        }
-
-        .work-image {
-            height: 20rem;
-        }
-    }
+  }
 }

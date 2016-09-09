@@ -1,11 +1,11 @@
 a {
-    @include transition-duration(0.2s);
-    border-bottom: 1px solid transparent;
-    color: inherit;
-    font-size: inherit;
-    text-decoration: none;
+  @include transition-duration(0.2s);
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
 
-    &:hover {
-        border-color: $accent;
-    }
+  &:hover {
+    border-color: $accent;
+  }
 }

@@ -1,21 +1,21 @@
 .footer {
-    background-color: $primary;
-    color: darken(white, 60%);
-    margin-top: 1rem;
-    padding: 2rem 0;
+  background-color: $primary;
+  color: darken(white, 60%);
+  margin-top: 1rem;
+  padding: 2rem 0;
 
-    a {
-        color: $accent;
+  a {
+    color: $accent;
 
-        &:hover {
-            border-color: white;
-            color: white;
-        }
+    &:hover {
+      border-color: white;
+      color: white;
     }
+  }
 
-    @include breakpoint(sm) {
-      padding: 1rem 0;
-    }
+  @include breakpoint(sm) {
+    padding: 1rem 0;
+  }
 }
 
 .footer-wrap {

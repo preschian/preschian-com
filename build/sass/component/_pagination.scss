@@ -1,23 +1,23 @@
 .pagination {
-    @include wrap;
-    @include wrap('flexbox');
-    @include wrap('auto');
-    @include wrap('between');
-    margin-bottom: 2rem;
+  @include wrap;
+  @include wrap('flexbox');
+  @include wrap('auto');
+  @include wrap('between');
+  margin-bottom: 2rem;
 
-    .pagination-col {
-        @include col;
-    }
+  .pagination-col {
+    @include col;
+  }
 
-    .pagination-nav {
-        @include size(2rem);
-        font-size: 1.5rem;
-        line-height: 2rem;
-        padding: initial;
-        text-align: center;
-    }
+  .pagination-nav {
+    @include size(2rem);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: initial;
+    text-align: center;
+  }
 
-    @include breakpoint(md) {
-        margin-bottom: 1rem;
-    }
+  @include breakpoint(md) {
+    margin-bottom: 1rem;
+  }
 }

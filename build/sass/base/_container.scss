@@ -1,9 +1,9 @@
 .container {
-    padding: 0 2rem;
+  padding: 0 2rem;
 
-    @include breakpoint(md) {
-        padding: 0 1rem;
-    }
+  @include breakpoint(md) {
+    padding: 0 1rem;
+  }
 }
 
 .container-height {
