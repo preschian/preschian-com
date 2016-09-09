@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^5.2.2",
     "flexiblegs-scss": "^5.5.2",
     "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
     "gulp-processhtml": "^1.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",

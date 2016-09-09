@@ -1,6 +1,7 @@
 var serve             = require('browser-sync').create()
 var historyFallback   = require('connect-history-api-fallback')
 var gulp              = require('gulp')
+var cssnano           = require('gulp-cssnano')
 var processhtml       = require('gulp-processhtml')
 var sass              = require('gulp-sass')
 var sourcemaps        = require('gulp-sourcemaps')
@@ -49,6 +50,7 @@ gulp.task('sass', function() {
 gulp.task('sass:min', function() {
   return gulp.src(PATH.SASS.BUILD)
     .pipe(sass({ includePaths: 'node_modules/', outputStyle: 'compressed' }))
+    .pipe(cssnano())
     .pipe(gulp.dest(PATH.SASS.OUTPUT))
 })
 
