@@ -103,7 +103,7 @@ gulp.task('watch', function() {
 gulp.task('browser', function() {
   serve.init({
     server: {
-      baseDir: './dist',
+      baseDir: DIST,
       middleware: [
         historyFallback()
       ]
