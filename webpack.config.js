@@ -2,7 +2,7 @@ var webpack = require('webpack')
 var path    = require('path')
 
 var BUILD_DIR   = path.join(__dirname, 'build/jsx')
-var DIST_DIR    = path.join(__dirname, 'docs/assets/js')
+var DIST_DIR    = path.join(__dirname, 'dist/assets/js')
 
 var config = {
   devtool: 'cheap-module-source-map',
