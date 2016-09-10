@@ -12,7 +12,7 @@ var webpackStream     = require('webpack-stream')
 
 // PATH
 var BUILD   = './build'
-var DIST    = './dist'
+var DIST    = './docs'
 var PATH    = {
   HTML: {
     BUILD: path.join(BUILD, 'html/*.html'),
@@ -103,7 +103,7 @@ gulp.task('watch', function() {
 gulp.task('browser', function() {
   serve.init({
     server: {
-      baseDir: './dist',
+      baseDir: DIST,
       middleware: [
         historyFallback()
       ]
