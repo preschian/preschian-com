@@ -14,7 +14,7 @@
   "author": "Preschian Febryantara",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/preschian/sass-react-gulp/issues"
+    "url": "https://github.com/preschian/preschian-com/issues"
   },
   "devDependencies": {
     "axios": "^0.13.1",
@@ -52,5 +52,8 @@
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0",
     "wpapi": "^0.9.1"
+  },
+  "dependencies": {
+    "babel-core": "^6.17.0"
   }
 }
