@@ -56,7 +56,7 @@ class HomeData {
       fetch.all(image).then(fetch.spread((...featured) => {
         forEach(data, (val, key) => {
           const title = val.title.rendered
-          const image = featured[key].source_url
+          const image = featured[key].source_url.replace('http://', 'https://')
           const date  = moment(new Date(val.date)).format('MMMM DD, YYYY')
           const slug  = val.slug
           const id    = val.id

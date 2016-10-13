@@ -1,5 +1,6 @@
 import { action, observable } from 'mobx'
 import moment from 'moment'
+import { replace } from 'lodash'
 
 import api from '../api'
 import LoadingData from './LoadingData'
@@ -26,12 +27,12 @@ class PostData {
     api.getPost(slug).then(data => {
       this.title    = data[0].title.rendered
       this.date     = moment(new Date(data[0].date)).format('MMMM DD, YYYY')
-      this.content  = data[0].content.rendered
+      this.content  = replace(data[0].content.rendered, new RegExp('http://', 'g'), 'https://')
 
       return data[0].featured_media
     }).then(data => {
       return api.getMedia(data).then(featured => {
-        this.featured = featured.source_url
+        this.featured = featured.source_url.replace('http://', 'https://')
         return featured.source_url
       })
     }).then(() => {

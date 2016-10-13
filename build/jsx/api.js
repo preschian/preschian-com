@@ -1,6 +1,6 @@
 import Wordpress from 'wpapi'
 
-const domain  = 'http://preschian.com/wp-json'
+const domain  = 'https://preschian.com/wp-json'
 const wp      = new Wordpress({ endpoint: domain })
 
 class Api {
