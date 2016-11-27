@@ -75,5 +75,8 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+# yarn lock, error on netlify
+yarn.lock
+
 # dotenv
 .env
