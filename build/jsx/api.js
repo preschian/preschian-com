@@ -1,23 +1,21 @@
-import Wordpress from 'wpapi'
-
-const domain  = 'https://preschian.com/wp-json'
-const wp      = new Wordpress({ endpoint: domain })
+import database from './firebase'
 
 class Api {
-  getPosts(page = 1, perPage = 4) {
-    return wp.posts().perPage(perPage).page(page)
+  posts(page = 1, eachPage = 4) {
+    const start = (eachPage * (page - 1)) + 1
+
+    return database.ref('/').orderByChild('order').startAt(start).limitToFirst(eachPage).once('value')
   }
 
-  getPost(slug) {
-    return wp.posts().slug(slug)
+  postDetail(slug) {
+    return database.ref('/').orderByChild('slug').startAt(slug).limitToFirst(1).once('value')
   }
 
-  getMedia(id) {
-    return wp.media().id(id)
+  count() {
+    return database.ref('/').orderByChild('order').limitToLast(1).once('value')
   }
 }
 
-// for testing in browser console
-const api = window.api = new Api
+const api = new Api
 
 export default api

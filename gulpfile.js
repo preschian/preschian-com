@@ -1,5 +1,6 @@
 var serve             = require('browser-sync').create()
 var historyFallback   = require('connect-history-api-fallback')
+var Dotenv            = require('dotenv-webpack')
 var gulp              = require('gulp')
 var cssnano           = require('gulp-cssnano')
 var processhtml       = require('gulp-processhtml')
@@ -74,7 +75,13 @@ gulp.task('react', function() {
           test: /\.json$/,
           loader: 'json-loader'
         }]
-      }
+      },
+      plugins: [
+        new Dotenv({
+          path: './.env',
+          safe: true
+        })
+      ]
     })).on('error', function() {
       this.emit('end')
     })
@@ -102,6 +109,7 @@ gulp.task('watch', function() {
 // serve
 gulp.task('browser', function() {
   serve.init({
+    open: false,
     server: {
       baseDir: DIST,
       middleware: [

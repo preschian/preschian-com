@@ -1,6 +1,4 @@
 import { action, observable } from 'mobx'
-import moment from 'moment'
-import { replace } from 'lodash'
 
 import api from '../api'
 import LoadingData from './LoadingData'
@@ -13,31 +11,36 @@ class PostData {
   @observable slug
 
   @action resetObs() {
-    this.title    = ''
-    this.date     = ''
-    this.content  = ''
+    this.title = ''
+    this.date = ''
+    this.content = ''
     this.featured = ''
   }
 
   fetchPost(slug) {
+    // set @observable slug for prevent always rendering
     this.slug = slug
+
+    // clear data
     this.resetObs()
+
+    // set loading
     LoadingData.goLoading()
 
-    api.getPost(slug).then(data => {
-      this.title    = data[0].title.rendered
-      this.date     = moment(new Date(data[0].date)).format('MMMM DD, YYYY')
-      this.content  = replace(data[0].content.rendered, new RegExp('http://', 'g'), 'https://')
+    // call firebase function from api.js
+    api.postDetail(slug).then((snapshot) => {
+      const getKey = Object.keys(snapshot.val())[0]
+      const data = snapshot.val()[getKey]
 
-      return data[0].featured_media
-    }).then(data => {
-      return api.getMedia(data).then(featured => {
-        this.featured = featured.source_url.replace('http://', 'https://')
-        return featured.source_url
-      })
+      this.title = data.title
+      this.date = data.date
+      this.content = data.content
+      this.featured = data.image
     }).then(() => {
       LoadingData.doneLoading()
-    }).catch(err => console.log(err))
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 }
 

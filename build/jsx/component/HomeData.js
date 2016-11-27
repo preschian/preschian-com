@@ -1,7 +1,4 @@
 import { action, observable } from 'mobx'
-import { map, forEach } from 'lodash'
-import moment from 'moment'
-import fetch from 'axios'
 import api from '../api'
 
 import LoadingData from './LoadingData'
@@ -16,60 +13,60 @@ class Post {
   constructor(title, image, date, slug, id) {
     this.title = title
     this.image = image
-    this.date  = date
-    this.slug  = slug
-    this.id    = id
+    this.date = date
+    this.slug = slug
+    this.id = id
   }
 }
 
 class HomeData {
-  @observable posts   = []
-
-  @observable page        = 1
-  @observable perPage     = 4
-  @observable totalPages
+  @observable posts = []
+  @observable page = 1
+  @observable eachPage = 4
+  @observable totalPages = 0
 
   nextPage = () => {
-    this.page     += 1
-
-    this.fetchHome(this.page)
+    this.renderHome(this.page += 1)
   }
 
   prevPage = () => {
-    this.page     -= 1
-
-    this.fetchHome(this.page)
+    this.renderHome(this.page -= 1)
   }
 
-  @action fetchHome(page = this.page, perPage = this.perPage) {
+  @action renderHome(page = this.page, eachPage = this.eachPage) {
+    // set loading for waiting the data
     LoadingData.goLoading()
-    this.posts    = []
 
-    api.getPosts(page, perPage).then(data => {
+    // clear posts because show posts based on @observable achPage
+    this.posts = []
 
-      this.totalPages = data._paging.totalPages
+    // call firebase function from api.js
+    api.posts(page, eachPage).then((snapshot) => {
+      snapshot.forEach((data) => {
+        const val = data.val()
 
-      const image = map(data, val => {
-        return api.getMedia(val.featured_media)
+        // insert data into @observable posts
+        this.posts.push(new Post(val.title, val.image, val.date, val.slug, val.id))
       })
+    }).then(() => {
+      LoadingData.doneLoading()
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
-      fetch.all(image).then(fetch.spread((...featured) => {
-        forEach(data, (val, key) => {
-          const title = val.title.rendered
-          const image = featured[key].source_url.replace('http://', 'https://')
-          const date  = moment(new Date(val.date)).format('MMMM DD, YYYY')
-          const slug  = val.slug
-          const id    = val.id
+  @action countData() {
+    api.count().then((snapshot) => {
+      const getKey = Object.keys(snapshot.val())[0]
+      const getOrder = snapshot.val()[getKey].order
 
-          this.posts.push(new Post(title, image, date, slug, id))
-        })
-      })).then(() => LoadingData.doneLoading()).catch(err => console.log(err))
-
-    }).catch(err => console.log(err))
+      this.totalPages = getOrder / this.eachPage
+    })
   }
 
   constructor() {
-    this.fetchHome()
+    this.countData()
+    this.renderHome()
   }
 }
 

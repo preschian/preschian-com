@@ -8,8 +8,6 @@ export default class Post extends React.Component {
   componentWillMount() {
     if (this.props.params.post != PostData.slug)
       PostData.fetchPost(this.props.params.post)
-    else
-      window.scrollTo(0, 0)
   }
 
   render() {
@@ -18,6 +16,9 @@ export default class Post extends React.Component {
     const postBackground = {
       backgroundImage: `url('${featured}')`
     }
+
+    // scroll to top page
+    window.scrollTo(0, 0)
 
     return (
       <div>
