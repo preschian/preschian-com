@@ -1,6 +1,5 @@
 var webpack = require('webpack')
 var path    = require('path')
-var Dotenv  = require('dotenv-webpack')
 
 var BUILD_DIR   = path.join(__dirname, 'build/jsx')
 var DIST_DIR    = path.join(__dirname, 'dist/assets/js')
@@ -22,10 +21,6 @@ var config = {
       compress:{
         warnings: false
       }
-    }),
-    new Dotenv({
-      path: './.env',
-      safe: true
     })
   ],
   module: {
