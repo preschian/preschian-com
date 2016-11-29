@@ -24,9 +24,6 @@ class PostData {
     // clear data
     this.resetObs()
 
-    // set loading
-    LoadingData.goLoading()
-
     // call firebase function from api.js
     api.postDetail(slug).then((snapshot) => {
       const getKey = Object.keys(snapshot.val())[0]
