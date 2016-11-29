@@ -1,7 +1,6 @@
 import { action, observable } from 'mobx'
 
 import api from '../api'
-import LoadingData from './LoadingData'
 
 class PostData {
   @observable title
@@ -33,8 +32,6 @@ class PostData {
       this.date = data.date
       this.content = data.content
       this.featured = data.image
-    }).then(() => {
-      LoadingData.doneLoading()
     }).catch((err) => {
       console.log(err)
     })

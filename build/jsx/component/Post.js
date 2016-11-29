@@ -24,7 +24,7 @@ export default class Post extends React.Component {
       <div>
         <div className="post-detail post-background" style={postBackground}>
           <div className="post-text">
-              <a className="post-text-title">{title}</a>
+              <a className="post-text-title">{title || 'loading...'}</a>
               <p className="post-text-meta">by <a href="#!">Preschian</a> on {date}</p>
           </div>
         </div>

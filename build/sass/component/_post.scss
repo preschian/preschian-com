@@ -95,6 +95,7 @@
   @include align-items(center);
   @include display(flex);
   @include justify-content(center);
+  background-color: $primary;
   height: calc(100vh - 100px);
   margin-bottom: 2rem;
 
