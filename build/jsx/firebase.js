@@ -2,11 +2,11 @@
 import firebase from 'firebase'
 
 const config = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  databaseURL: process.env.databaseURL,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId
+  apiKey: 'AIzaSyBAws8NRye9QwCJGnpBVmwQogjEVEZnLqM',
+  authDomain: 'preschian-com.firebaseapp.com',
+  databaseURL: 'https://preschian-com.firebaseio.com',
+  storageBucket: 'preschian-com.appspot.com',
+  messagingSenderId: '206243381401'
 }
 firebase.initializeApp(config)
 module.exports = firebase.database()
