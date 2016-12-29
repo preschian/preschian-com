@@ -10,7 +10,7 @@ import Post from './component/Post'
 const app = document.getElementById('app')
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path='/' component={Menu}>
       <IndexRoute component={Home}/>
       <Route path='/works' component={Works} />

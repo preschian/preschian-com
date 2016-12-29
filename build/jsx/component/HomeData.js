@@ -60,7 +60,7 @@ class HomeData {
       const getKey = Object.keys(snapshot.val())[0]
       const getOrder = snapshot.val()[getKey].order
 
-      this.totalPages = getOrder / this.eachPage
+      this.totalPages = Math.ceil(getOrder / this.eachPage)
     })
   }
 

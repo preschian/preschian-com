@@ -9,3 +9,13 @@ a {
     border-color: $accent;
   }
 }
+
+pre {
+  background-color: $primary;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  word-break: break-all;
+  white-space: normal;
+}
