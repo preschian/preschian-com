@@ -121,7 +121,7 @@
   a {
     border-color: black;
     color: black;
-    word-break: break-all;
+    word-break: normal;
 
     &:hover {
       border-color: $accent;
