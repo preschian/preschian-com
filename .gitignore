@@ -80,3 +80,5 @@ yarn.lock
 
 # dotenv
 .env
+
+.next
