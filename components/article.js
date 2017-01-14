@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 import Head from './head'
@@ -44,6 +43,17 @@ const ArticleContent = styled.div`
   max-width: 50rem;
   text-align: justify;
 
+  a {
+    border-bottom: 1px solid #111;
+    color: #111;
+    font-size: inherit;
+    transition-duration: 0.2s;
+
+    &:hover {
+      border-color: #ffee58;
+    }
+  }
+
   img {
     display: block;
     margin-left: calc((50rem - 80vw)/ 2);
@@ -66,6 +76,10 @@ const ArticleContent = styled.div`
 
   p ~ p {
     margin-top: 1rem;
+  }
+
+  ul {
+    padding-left: 18px;
   }
 `
 

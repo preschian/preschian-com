@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "next/babel"
+  ]
+  // "plugins": [
+  //   ["styled-components", {
+  //     "displayName": true,
+  //     "minify": true,
+  //     "ssr": true
+  //   }]
+  // ]
+}

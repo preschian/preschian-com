@@ -14,7 +14,6 @@ app.prepare().then(() => {
     const { pathname } = parse(req.url)
     const params = match(pathname)
 
-    console.log('nama path: ', pathname, params)
     if (params === false) {
       handle(req, res)
       return

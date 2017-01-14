@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/preschian/preschian-com#readme",
   "dependencies": {
-    "dotenv": "^4.0.0",
+    "babel-plugin-styled-components": "^1.0.0",
     "firebase": "^3.6.5",
     "next": "^2.0.0-beta",
     "path-match": "^1.2.4",

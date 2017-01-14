@@ -1,5 +1,4 @@
-import React from 'react'
-import Link from 'next/link'
+import Link from 'next/prefetch'
 import styled from 'styled-components'
 
 export const Post = styled.div`

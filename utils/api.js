@@ -7,5 +7,5 @@ export const GetPosts = (page = 1, eachPage = 4) => {
 }
 
 export const GetPostDetail = (slug) => {
-  return database.ref('/').orderByChild('slug').startAt(slug).limitToFirst(1).once('value')
+  return database.ref('/').orderByChild('slug').equalTo(slug).once('value')
 }
