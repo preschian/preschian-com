@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from 'next/prefetch'
 
 import Container from './container'
 
@@ -8,10 +9,14 @@ const Head = styled.h1`
   padding-bottom: 2rem;
   text-align: center;
   text-transform: uppercase;
+
+  a {
+    color: #111;
+  }
 `
 
 export default () => (
   <Container>
-    <Head>Preschian Febryantara</Head>
+    <Head><Link href="/">Preschian Febryantara</Link></Head>
   </Container>
 )

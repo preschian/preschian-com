@@ -1,4 +1,4 @@
-import Link from 'next/prefetch'
+import Link from 'next/link'
 import styled from 'styled-components'
 
 export const Post = styled.div`
@@ -62,7 +62,6 @@ export const PostTextTitle = styled.span`
   border-bottom: 1px solid transparent;
   color: white;
   cursor: pointer;
-  display: inline-block;
   font-size: 2.25rem;
   font-weight: 700;
   transition-duration: 0.2s;
@@ -82,7 +81,7 @@ export const PostTextMeta = styled.p`
   text-transform: uppercase;
 `
 
-const PostTextBtn = styled.a`
+const PostTextBtn = styled.span`
   border: 2px solid white;
   color: white;
   cursor: pointer;
@@ -104,11 +103,13 @@ export default ({ data }) => (
   <PostItem>
     <PostBackground image={data.image}>
       <PostText>
-        <Link href={`/?slug=${data.slug}`} as={`/${data.slug}`}>
+        <Link href={`/post/?slug=${data.slug}`} as={`/post/${data.slug}`}>
           <PostTextTitle>{data.title}</PostTextTitle>
         </Link>
         <PostTextMeta>{data.date}</PostTextMeta>
-        <PostTextBtn>Read More</PostTextBtn>
+        <Link href={`/post/?slug=${data.slug}`} as={`/post/${data.slug}`}>
+          <PostTextBtn>Read More</PostTextBtn>
+        </Link>
       </PostText>
     </PostBackground>
   </PostItem>

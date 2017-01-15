@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const route = pathMatch()
-const match = route('/:slug')
+const match = route('/post/:slug')
 
 app.prepare().then(() => {
   createServer((req, res) => {
@@ -20,7 +20,7 @@ app.prepare().then(() => {
       return
     }
     
-    app.render(req, res, '/article', params)
+    app.render(req, res, '/post', params)
   })
   .listen(port, (err) => {
     if (err) throw err
