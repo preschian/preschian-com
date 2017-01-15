@@ -4,7 +4,7 @@ const next = require('next')
 const pathMatch = require('path-match')
 
 const dev = process.env.NODE_ENV !== 'production'
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const route = pathMatch()
