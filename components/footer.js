@@ -17,6 +17,10 @@ const Footer = styled.div`
       color: #FFEE58;
     }
   }
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `
 
 export default () => (
