@@ -46,12 +46,17 @@ const ArticleContent = styled.div`
   a {
     border-bottom: 1px solid #111;
     color: #111;
+    display: inline;
     font-size: inherit;
     transition-duration: 0.2s;
 
     &:hover {
       border-color: #ffee58;
     }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
   }
 
   img {
@@ -78,7 +83,7 @@ const ArticleContent = styled.div`
     margin-top: 1rem;
   }
 
-  ul {
+  ul, ol {
     padding-left: 18px;
   }
 
