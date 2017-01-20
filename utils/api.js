@@ -9,3 +9,7 @@ export const GetPosts = (page = 1, eachPage = 4) => {
 export const GetPostDetail = (slug) => {
   return database.ref('/').orderByChild('slug').equalTo(slug).once('value')
 }
+
+export const GetTotalPosts = () => {
+  return database.ref('/').orderByChild('order').limitToLast(1).once('value')
+}

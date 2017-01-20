@@ -81,6 +81,22 @@ const ArticleContent = styled.div`
   ul {
     padding-left: 18px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    img {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    pre {
+      font-size: 14px;
+    }
+  }
 `
 
 export default ({ data }) => (

@@ -6,8 +6,8 @@ export const Post = styled.div`
   display: block;
   font-size: 0;
   letter-spacing: 0;
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
+  margin-right: -1rem;
+  margin-left: -1rem;
   padding-right: 0;
   padding-left: 0;
   text-align: left;
@@ -26,6 +26,11 @@ const PostItem = styled.div`
   width: 50%;
 
   &:nth-child(3n + 1) {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
     width: 100%;
   }
 `
@@ -47,6 +52,10 @@ const PostBackground = styled.div`
     bottom: 0;
     left: 0;
   }
+
+  @media (max-width: 768px) {
+    height: 10rem;
+  }
 `
 
 const PostText = styled.div`
@@ -56,6 +65,10 @@ const PostText = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 `
 
 export const PostTextTitle = styled.span`
@@ -70,6 +83,10 @@ export const PostTextTitle = styled.span`
 
   &:hover {
     border-color: #ffee58;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
   }
 `
 
@@ -96,6 +113,10 @@ const PostTextBtn = styled.span`
     background-color: #ffee58;
     border-color: #ffee58;
     color: #111;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `
 

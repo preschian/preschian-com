@@ -1,6 +1,8 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import styleSheet from 'styled-components/lib/models/StyleSheet'
 
+import Footer from '../components/footer'
+
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
     const page = renderPage()
@@ -42,6 +44,8 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
           {/*<NextScript />*/}
+
+          <Footer />
         </body>
       </html>
     )

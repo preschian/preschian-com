@@ -1,6 +1,9 @@
 {
   "presets": [
     "next/babel"
+  ],
+  "plugins": [
+    "transform-decorators-legacy"
   ]
   // "plugins": [
   //   ["styled-components", {

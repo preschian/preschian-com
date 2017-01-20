@@ -13,6 +13,11 @@ const Head = styled.h1`
   a {
     color: #111;
   }
+
+  @media (max-width: 768px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 `
 
 export default () => (

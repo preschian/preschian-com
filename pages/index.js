@@ -1,14 +1,16 @@
 import React from 'react'
 import 'isomorphic-fetch'
 
-import { GetPosts } from '../utils/api'
+import { GetPosts, GetTotalPosts } from '../utils/api'
 
-import { ContainerHeight } from '../components/container'
+import { Container } from '../components/container'
 import Head from '../components/head'
+import Page from '../components/page'
 import PostItem, { Post } from '../components/post'
 
 export default class Index extends React.Component {
   static async getInitialProps({ query }) {
+    // get posts
     const ref = await GetPosts(query.page)
     const val = ref.val()
     let result = []
@@ -17,8 +19,15 @@ export default class Index extends React.Component {
       result.push(val[value])
     }
 
+    // get total posts
+    const getTotalPosts = await GetTotalPosts()
+    const getKey = Object.keys(getTotalPosts.val())[0]
+    const getOrder = getTotalPosts.val()[getKey].order
+
     return {
-      result: result.reverse()
+      page: parseInt(query.page) || 1,
+      result: result.reverse(),
+      totalPages: Math.ceil(getOrder / 4)
     }
   }
 
@@ -27,13 +36,15 @@ export default class Index extends React.Component {
       <div>
         <Head />
 
-        <ContainerHeight>
+        <Container>
           <Post>
             {this.props.result.map((value) => {
               return <PostItem key={value.id} data={value} />
             })}
           </Post>
-        </ContainerHeight>
+
+          <Page page={this.props.page} totalPages={this.props.totalPages} />
+        </Container>
       </div>
     )
   }
