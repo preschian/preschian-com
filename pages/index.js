@@ -4,7 +4,7 @@ import 'isomorphic-fetch'
 import { GetPosts, GetTotalPosts } from '../utils/api'
 
 import { Container } from '../components/container'
-import Head from '../components/head'
+import Layout from '../components/layout'
 import Page from '../components/page'
 import PostItem, { Post } from '../components/post'
 
@@ -33,9 +33,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div>
-        <Head />
-
+      <Layout>
         <Container>
           <Post>
             {this.props.result.map((value) => {
@@ -45,7 +43,7 @@ export default class Index extends React.Component {
 
           <Page page={this.props.page} totalPages={this.props.totalPages} />
         </Container>
-      </div>
+      </Layout>
     )
   }
 }

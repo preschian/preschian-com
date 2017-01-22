@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Head from './head'
+import Layout from './layout'
 import { PostTextTitle, PostTextMeta } from './post'
 
 const ArticleBackground = styled.div`
@@ -105,9 +105,7 @@ const ArticleContent = styled.div`
 `
 
 export default ({ data }) => (
-  <div>
-    <Head />
-
+  <Layout>
     <ArticleBackground image={data.image}>
       <ArticleBackgroundText>
         <PostTextTitle>{data.title}</PostTextTitle>
@@ -116,5 +114,5 @@ export default ({ data }) => (
     </ArticleBackground>
 
     <ArticleContent dangerouslySetInnerHTML={{ __html: data.content }} />
-  </div>
+  </Layout>
 )

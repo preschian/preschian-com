@@ -28,6 +28,12 @@ const PageNav = styled.a`
   }
 `
 
+const PageInfo = styled.p`
+  line-height: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+`
+
 export default class Pagination extends React.Component {
   render() {
     let prevNav = <div></div>
@@ -43,7 +49,9 @@ export default class Pagination extends React.Component {
 
     return(
       <Page>
-        {prevNav}{nextNav}
+        {prevNav}
+        <PageInfo>Page {this.props.page} of {this.props.totalPages}</PageInfo>
+        {nextNav}
       </Page>
     )
   }
