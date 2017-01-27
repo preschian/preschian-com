@@ -22,28 +22,13 @@ export default class Home extends React.Component {
           </div>
         </div>
 
-        <div className="container-height">
-          {this.props.children}
-        </div>
+        {this.props.children}
 
         <div className="footer">
-          <div className="container">
-
-            <div className="footer-wrap">
-              <div className="footer-col">
-                <ul className="footer-social">
-                  <li><a className="btn btn-dark" href="https://twitter.com/preschian" target="_blank"><i className="fa fa-fw fa-twitter"></i></a></li>
-                  <li><a className="btn btn-dark" href="https://steamcommunity.com/id/preschian" target="_blank"><i className="fa fa-fw fa-steam"></i></a></li>
-                  <li><a className="btn btn-dark" href="https://github.com/preschian" target="_blank"><i className="fa fa-fw fa-github"></i></a></li>
-                </ul>
-              </div>
-
-              <div className="footer-col">
-                <p className="footer-text">source on <a href="https://github.com/preschian/preschian-com" target="_blank">github</a></p>
-              </div>
-            </div>
-
-          </div>
+          <a className="footer-col" href="https://twitter.com/preschian" target="_blank">twitter</a>
+          <a className="footer-col" href="https://steamcommunity.com/id/preschian" target="_blank">steam</a>
+          <a className="footer-col" href="https://github.com/preschian" target="_blank">github</a>
+          <a className="footer-col" href="https://github.com/preschian/preschian-com" target="_blank">source</a>
         </div>
       </div>
     )

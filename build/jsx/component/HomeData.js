@@ -3,6 +3,8 @@ import api from '../api'
 
 import LoadingData from './LoadingData'
 
+import articles from '../store/articles.json'
+
 class Post {
   @observable title
   @observable image
@@ -25,6 +27,11 @@ class HomeData {
   @observable eachPage = 4
   @observable totalPages = 0
 
+  constructor() {
+    this.countData()
+    this.renderHome()
+  }
+
   nextPage = () => {
     this.renderHome(this.page += 1)
   }
@@ -34,39 +41,31 @@ class HomeData {
   }
 
   @action renderHome(page = this.page, eachPage = this.eachPage) {
-    // set loading for waiting the data
-    LoadingData.goLoading()
-
     // clear posts because show posts based on @observable achPage
     this.posts = []
 
-    // call firebase function from api.js
-    api.posts(page, eachPage).then((snapshot) => {
-      snapshot.forEach((data) => {
-        const val = data.val()
+    const start = (eachPage * page) - eachPage
+    const end = eachPage * page - 1
 
-        // insert data into @observable posts
-        this.posts.push(new Post(val.title, val.image, val.date, val.slug, val.id))
-      })
-    }).then(() => {
-      LoadingData.doneLoading()
-    }).catch((err) => {
-      console.log(err)
-    })
+    for (let i = start; i <= end; i ++) {
+      try {
+        const article = articles[i]
+
+        this.posts.push(new Post(
+          article.title,
+          article.imageID,
+          article.date,
+          article.slug,
+          article.id
+        ))
+      } catch (e) {
+        return
+      }
+    }
   }
 
   @action countData() {
-    api.count().then((snapshot) => {
-      const getKey = Object.keys(snapshot.val())[0]
-      const getOrder = snapshot.val()[getKey].order
-
-      this.totalPages = Math.ceil(getOrder / this.eachPage)
-    })
-  }
-
-  constructor() {
-    this.countData()
-    this.renderHome()
+    this.totalPages = Math.ceil(articles.length / this.eachPage)
   }
 }
 

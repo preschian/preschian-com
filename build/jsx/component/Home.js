@@ -1,7 +1,9 @@
 import React from 'react'
+import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import { Link } from 'react-router'
 
+import api from '../api'
 import HomeData from './HomeData'
 
 @observer
@@ -10,22 +12,6 @@ export default class Home extends React.Component {
     const { posts, nextPage, prevPage, page, totalPages } = HomeData
     let anchorNext = ''
     let anchorPrev = ''
-
-    const latestPosts = posts.map((data) => {
-      const background = {
-        backgroundImage: `url('${data.image}')`
-      }
-
-      return <div key={data.title} className="post-item">
-        <div className="post-background" style={background}>
-          <div className="post-text">
-            <Link to={data.slug} id={data.id} className="post-text-title">{data.title}</Link>
-            <p className="post-text-meta">by <a href="#!">Preschian</a> on {data.date}</p>
-            <Link className="post-text-more btn" to={data.slug}>READ MORE</Link>
-          </div>
-        </div>
-      </div>
-    })
 
     if (page != totalPages) {
       anchorNext = <div className="pagination-col"><a className="btn btn-primary pagination-nav" onClick={nextPage}><i className="fa fa-fw fa-angle-right" aria-hidden="true"></i></a></div>
@@ -38,7 +24,9 @@ export default class Home extends React.Component {
     return <div>
       <div className="container">
         <div className="post">
-          {latestPosts}
+          {posts.map((data) => {
+            return <HomeCard key={data.id} data={data} />
+          })}
         </div>
       </div>
       <div className="container">
@@ -48,6 +36,37 @@ export default class Home extends React.Component {
             PAGE {page} OF {totalPages}
           </div>
           {anchorNext}
+        </div>
+      </div>
+    </div>
+  }
+}
+
+@observer
+class HomeCard extends React.Component {
+  @observable image = ''
+
+  constructor(props) {
+    super(props)
+
+    api.getImage(props.data.id).then((snapshot) => {
+      this.image = snapshot.val()
+    })
+  }
+
+  render() {
+    const { data } = this.props
+    const background = {
+      backgroundColor: '#111',
+      backgroundImage: `url('${this.image}')`
+    }
+
+    return <div className="post-item">
+      <div className="post-background" style={background}>
+        <div className="post-text">
+          <Link to={data.slug} id={data.id} className="post-text-title">{data.title}</Link>
+          <p className="post-text-meta">{data.date}</p>
+          <Link className="post-text-more btn" to={data.slug}>READ MORE</Link>
         </div>
       </div>
     </div>

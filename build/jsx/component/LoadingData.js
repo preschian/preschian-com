@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 
 class Loading {
-  @observable loading = true
+  @observable loading = false
 
   @action doneLoading() {
     this.loading = false

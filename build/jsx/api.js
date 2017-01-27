@@ -14,6 +14,10 @@ class Api {
   count() {
     return database.ref('/').orderByChild('order').limitToLast(1).once('value')
   }
+
+  getImage(id) {
+    return database.ref(`/${id}/image`).once('value')
+  }
 }
 
 const api = new Api
