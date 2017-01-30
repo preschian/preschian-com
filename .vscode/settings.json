@@ -1,0 +1,6 @@
+{
+  "vsicons.presets.angular": false,
+  "eslint.options": {
+    "configFile": ".eslintrc.json"
+  }
+}

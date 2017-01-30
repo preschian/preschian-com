@@ -6,32 +6,15 @@
   },
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 7,
-    "sourceType": "module",
-    "ecmaFeatures":  {
-      "jsx": true,
-      "experimentalObjectRestSpread": true,
-      "experimentalDecorators": true
-    }
-  },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
+    "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": [2],
+    "react/jsx-indent": [2, 2],
+    "react/prefer-stateless-function": [1],
     "no-console": 0,
-    "indent": [
-      "error",
-      2
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ]
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"]
   }
 }

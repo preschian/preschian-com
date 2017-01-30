@@ -6,7 +6,7 @@ const config = {
   authDomain: 'preschian-com.firebaseapp.com',
   databaseURL: 'https://preschian-com.firebaseio.com',
   storageBucket: 'preschian-com.appspot.com',
-  messagingSenderId: '206243381401'
+  messagingSenderId: '206243381401',
 }
 firebase.initializeApp(config)
 module.exports = firebase.database()

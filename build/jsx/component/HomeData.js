@@ -1,7 +1,4 @@
 import { action, observable } from 'mobx'
-import api from '../api'
-
-import LoadingData from './LoadingData'
 
 import articles from '../store/articles.json'
 
