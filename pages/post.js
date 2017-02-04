@@ -1,5 +1,4 @@
 import React from 'react'
-import Router from 'next/router'
 import 'isomorphic-fetch'
 
 import { GetPostDetail } from '../utils/api'

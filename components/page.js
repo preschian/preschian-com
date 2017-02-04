@@ -34,25 +34,23 @@ const PageInfo = styled.p`
   text-transform: uppercase;
 `
 
-export default class Pagination extends React.Component {
-  render() {
-    let prevNav = <div></div>
-    let nextNav = <div></div>
+export default ({page, totalPages}) => {
+  let prevNav = <div></div>
+  let nextNav = <div></div>
 
-    if (this.props.page !== 1) {
-      prevNav = <PageNav href={`/?page=${this.props.page - 1}`}>＜</PageNav>
-    }
-
-    if (this.props.page !== this.props.totalPages) {
-      nextNav = <PageNav href={`/?page=${this.props.page + 1}`}>＞</PageNav>
-    }
-
-    return(
-      <Page>
-        {prevNav}
-        <PageInfo>Page {this.props.page} of {this.props.totalPages}</PageInfo>
-        {nextNav}
-      </Page>
-    )
+  if (page !== 1) {
+    prevNav = <PageNav href={`/?page=${page - 1}`}>＜</PageNav>
   }
+
+  if (page !== totalPages) {
+    nextNav = <PageNav href={`/?page=${page + 1}`}>＞</PageNav>
+  }
+
+  return(
+    <Page>
+      {prevNav}
+      <PageInfo>Page {page} of {totalPages}</PageInfo>
+      {nextNav}
+    </Page>
+  )
 }
