@@ -80,3 +80,6 @@ yarn.lock
 
 # dotenv
 .env
+
+dist/assets/css/style.css
+dist/assets/js

@@ -89,8 +89,17 @@ gulp.task('react:min', function() {
 
 // watch development files
 gulp.task('watch', function() {
-  watch(PATH.SASS.WATCH, function() { run('sass') })
-  watch(PATH.HTML.WATCH, function() { run('html') })
+  watch(PATH.SASS.WATCH, function() {
+    run('sass', function() {
+      serve.reload()
+    })
+  })
+
+  watch(PATH.HTML.WATCH, function() {
+    run('html', function() {
+      serve.reload()
+    })
+  })
 
   watch(PATH.JSX.WATCH, function() {
     run('react', function() {
