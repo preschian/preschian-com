@@ -79,3 +79,4 @@ jspm_packages
 .env
 
 .next
+yarn.lock
