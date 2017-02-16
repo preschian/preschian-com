@@ -1,9 +1,13 @@
 .loading {
-  @include position(fixed, 0);
-  @include transition-duration(0.4s);
-  @include transform(translatey(0));
   background-color: white;
   opacity: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateY(0);
+  transition-duration: 0.4s;
   z-index: 9;
 
   &.loading-hide {

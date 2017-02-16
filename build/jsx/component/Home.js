@@ -1,13 +1,48 @@
 import React from 'react'
-import {observable} from 'mobx'
-import {observer} from 'mobx-react'
-import {Link} from 'react-router'
+import { observable } from 'mobx'
+import { observer } from 'mobx-react'
+import { Link } from 'react-router'
 
 import api from '../api'
 import HomeData from './HomeData'
 
+@observer
+class HomeCard extends React.Component {
+  @observable image = ''
+
+  constructor(props) {
+    super(props)
+
+    api.getImage(props.data.id).then(snapshot => {
+      this.image = snapshot.val()
+    })
+  }
+
+  render() {
+    const {data} = this.props
+    const background = {
+      backgroundColor: '#111',
+      backgroundImage: `url('${this.image}')`,
+    }
+
+    return (
+      <div className="post-item">
+        <div className="post-background" style={background}>
+          <div className="post-text">
+            <h2><Link to={data.slug} id={data.id} className="post-text-title">
+              {data.title}
+            </Link></h2>
+            <p className="post-text-meta">{data.date}</p>
+            <Link className="post-text-more btn" to={data.slug}>READ MORE</Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
 const Home = observer(() => {
-  const {posts, nextPage, prevPage, page, totalPages} = HomeData
+  const { posts, nextPage, prevPage, page, totalPages } = HomeData
   let anchorNext = ''
   let anchorPrev = ''
 
@@ -54,38 +89,3 @@ const Home = observer(() => {
 })
 
 export default Home
-
-@observer
-class HomeCard extends React.Component {
-  @observable image = ''
-
-  constructor(props) {
-    super(props)
-
-    api.getImage(props.data.id).then(snapshot => {
-      this.image = snapshot.val()
-    })
-  }
-
-  render() {
-    const {data} = this.props
-    const background = {
-      backgroundColor: '#111',
-      backgroundImage: `url('${this.image}')`,
-    }
-
-    return (
-      <div className="post-item">
-        <div className="post-background" style={background}>
-          <div className="post-text">
-            <Link to={data.slug} id={data.id} className="post-text-title">
-              {data.title}
-            </Link>
-            <p className="post-text-meta">{data.date}</p>
-            <Link className="post-text-more btn" to={data.slug}>READ MORE</Link>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}

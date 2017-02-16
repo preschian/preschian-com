@@ -82,4 +82,9 @@ yarn.lock
 .env
 
 dist/assets/css/style.css
-dist/assets/js
+dist/assets/js/script.js
+dist/assets/js/script.js.map
+
+.firebaserc
+database.rules.json
+firebase.json

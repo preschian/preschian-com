@@ -20,10 +20,14 @@
     position: relative;
 
     &:before {
-      @include position(absolute, 0);
-      @include transition-duration(0.2s);
       background-color: rgba(black, 0.8);
       content: '';
+      transition-duration: 0.2s;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     img {
@@ -32,7 +36,10 @@
   }
 
   .work-content {
-    @include position(absolute, null 2rem 1rem 2rem);
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    left: 2rem;
 
     .work-title {
       color: white;
@@ -42,11 +49,11 @@
     }
 
     .work-desc {
-      @include transition-duration(0.2s);
       color: darken(white, 20%);
       font-size: 0.75rem;
       letter-spacing: 1px;
       margin: 0;
+      transition-duration: 0.2s;
     }
 
     .work-tech {

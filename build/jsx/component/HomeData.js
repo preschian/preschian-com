@@ -66,4 +66,4 @@ class HomeData {
   }
 }
 
-export default new HomeData
+export default new HomeData()

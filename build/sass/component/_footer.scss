@@ -1,9 +1,9 @@
 .footer {
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
+  align-items: center;
   background-color: #111;
   color: white;
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
   padding: 1rem;
 

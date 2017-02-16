@@ -33,27 +33,37 @@
   position: relative;
 
   &:before {
-    @include position(absolute, 0);
     background-color: rgba(black, 0.6);
     content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 
 .post-text {
-  @include position(absolute, 0);
   padding: 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1;
 
   .post-text-title {
     color: white;
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: bold;
     text-transform: capitalize;
   }
 
   .post-text-more {
-    @include position(absolute, null null 3rem 3rem);
     font-size: 1rem;
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
   }
 
   .post-text-meta {
@@ -85,11 +95,11 @@
 }
 
 .post-detail {
-  @include align-items(center);
-  @include display(flex);
-  @include justify-content(center);
+  align-items: center;
   background-color: $primary;
+  display: flex;
   height: calc(100vh - 100px);
+  justify-content: center;
   margin-bottom: 2rem;
 
   .post-text {

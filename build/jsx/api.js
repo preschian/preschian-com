@@ -1,11 +1,17 @@
-import database from './firebase'
+import firebase from 'firebase'
+
+firebase.initializeApp({
+  databaseURL: 'https://preschian-com.firebaseio.com'
+})
+
+const database = firebase.database()
 
 class Api {
   posts(page = 1, eachPage = 4) {
     const start = eachPage * (page - 1) + 1
 
     return database
-      .ref('/')
+      .ref('/post')
       .orderByChild('order')
       .startAt(start)
       .limitToFirst(eachPage)
@@ -14,7 +20,7 @@ class Api {
 
   postDetail(slug) {
     return database
-      .ref('/')
+      .ref('/post')
       .orderByChild('slug')
       .startAt(slug)
       .limitToFirst(1)
@@ -22,14 +28,12 @@ class Api {
   }
 
   count() {
-    return database.ref('/').orderByChild('order').limitToLast(1).once('value')
+    return database.ref('/post').orderByChild('order').limitToLast(1).once('value')
   }
 
   getImage(id) {
-    return database.ref(`/${id}/image`).once('value')
+    return database.ref(`/post/${id}/image`).once('value')
   }
 }
 
-const api = new Api()
-
-export default api
+export default new Api()

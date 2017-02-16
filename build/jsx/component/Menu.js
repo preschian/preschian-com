@@ -6,7 +6,7 @@ export default ({children}) => (
     <div className="container">
       <div className="menu">
         <div className="menu-col">
-          <Link to="/" className="menu-name">PRESCHIAN FEBRYANTARA</Link>
+          <h1><Link to="/" className="menu-name">PRESCHIAN FEBRYANTARA</Link></h1>
         </div>
         <div className="menu-col">
           <ul className="menu-list">
