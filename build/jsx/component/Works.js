@@ -16,7 +16,7 @@ export default class Works extends React.Component {
         return <span key={k} className="work-tech">{v}</span>
       })
 
-      return(
+      return (
         <div key={key} className="work-item">
           <div className="work-image">
             <img src={'/assets/img/' + val.image} />
@@ -32,10 +32,12 @@ export default class Works extends React.Component {
   }
 
   render() {
-    return <div className="container">
-      <div className="work">
-        {this.worksData}
+    return (
+      <div className="container">
+        <div className="work">
+          {this.worksData}
+        </div>
       </div>
-    </div>
+    )
   }
 }

@@ -28,7 +28,11 @@ class Api {
   }
 
   count() {
-    return database.ref('/post').orderByChild('order').limitToLast(1).once('value')
+    return database
+      .ref('/post')
+      .orderByChild('order')
+      .limitToLast(1)
+      .once('value')
   }
 
   getImage(id) {
