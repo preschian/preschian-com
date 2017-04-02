@@ -23,7 +23,7 @@ https://preschian.com/
     </tr>
     <tr>
       <td><a href="https://github.com/preschian/preschian-com-vuejs" target="_blank">preschian-com-vuejs</a></td>
-      <td><a href="http://preschian-com-vuejs.netlify.com/" target="_blank">http://preschian-com-vuejs.netlify.com/</a></td>
+      <td><a href="https://preschian-com-vuejs.netlify.com/" target="_blank">https://preschian-com-vuejs.netlify.com/</a></td>
       <td>learn VueJS</td>
     </tr>
   </tbody>
