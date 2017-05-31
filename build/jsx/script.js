@@ -17,5 +17,5 @@ ReactDOM.render(
       <Route path="/:post" component={Post} />
     </Route>
   </Router>,
-  app,
+  app
 )

@@ -1,19 +1,19 @@
-var serve             = require('browser-sync').create()
-var historyFallback   = require('connect-history-api-fallback')
-var gulp              = require('gulp')
-var cssnano           = require('gulp-cssnano')
-var processhtml       = require('gulp-processhtml')
-var sass              = require('gulp-sass')
-var sourcemaps        = require('gulp-sourcemaps')
-var watch             = require('gulp-watch')
-var path              = require('path')
-var run               = require('run-sequence')
-var webpackStream     = require('webpack-stream')
+var serve = require('browser-sync').create()
+var historyFallback = require('connect-history-api-fallback')
+var gulp = require('gulp')
+var cssnano = require('gulp-cssnano')
+var processhtml = require('gulp-processhtml')
+var sass = require('gulp-sass')
+var sourcemaps = require('gulp-sourcemaps')
+var watch = require('gulp-watch')
+var path = require('path')
+var run = require('run-sequence')
+var webpackStream = require('webpack-stream')
 
 // PATH
-var BUILD   = './build'
-var DIST    = './dist'
-var PATH    = {
+var BUILD = './build'
+var DIST = './dist'
+var PATH = {
   HTML: {
     BUILD: path.join(BUILD, 'html/*.html'),
     WATCH: path.join(BUILD, 'html/**/*.html'),
@@ -33,14 +33,16 @@ var PATH    = {
 
 // compile html
 gulp.task('html', function() {
-  return gulp.src(PATH.HTML.BUILD)
+  return gulp
+    .src(PATH.HTML.BUILD)
     .pipe(processhtml())
     .pipe(gulp.dest(PATH.HTML.OUTPUT))
 })
 
 // compile sass
 gulp.task('sass', function() {
-  return gulp.src(PATH.SASS.BUILD)
+  return gulp
+    .src(PATH.SASS.BUILD)
     .pipe(sourcemaps.init())
     .pipe(sass({ includePaths: 'node_modules/' }).on('error', sass.logError))
     .pipe(sourcemaps.write())
@@ -48,7 +50,8 @@ gulp.task('sass', function() {
 })
 
 gulp.task('sass:min', function() {
-  return gulp.src(PATH.SASS.BUILD)
+  return gulp
+    .src(PATH.SASS.BUILD)
     .pipe(sass({ includePaths: 'node_modules/', outputStyle: 'compressed' }))
     .pipe(cssnano())
     .pipe(gulp.dest(PATH.SASS.OUTPUT))
@@ -56,33 +59,41 @@ gulp.task('sass:min', function() {
 
 // compile react
 gulp.task('react', function() {
-  return gulp.src(PATH.JSX.WATCH)
-    .pipe(webpackStream({
-      devtool: 'cheap-module-eval-source-map',
-      output: {
-        filename: 'script.js'
-      },
-      module: {
-        loaders: [{
-          test: /\.jsx?/,
-          include: path.join(__dirname, 'build/jsx'),
-          loader: 'babel',
-          query: {
-            cacheDirectory: true
-          }
-        }, {
-          test: /\.json$/,
-          loader: 'json-loader'
-        }]
-      }
-    })).on('error', function() {
+  return gulp
+    .src(PATH.JSX.WATCH)
+    .pipe(
+      webpackStream({
+        devtool: 'cheap-module-eval-source-map',
+        output: {
+          filename: 'script.js'
+        },
+        module: {
+          loaders: [
+            {
+              test: /\.jsx?/,
+              include: path.join(__dirname, 'build/jsx'),
+              loader: 'babel',
+              query: {
+                cacheDirectory: true
+              }
+            },
+            {
+              test: /\.json$/,
+              loader: 'json-loader'
+            }
+          ]
+        }
+      })
+    )
+    .on('error', function() {
       this.emit('end')
     })
     .pipe(gulp.dest(PATH.JSX.OUTPUT))
 })
 
 gulp.task('react:min', function() {
-  return gulp.src(PATH.JSX.WATCH)
+  return gulp
+    .src(PATH.JSX.WATCH)
     .pipe(webpackStream(require('./webpack.config.js')))
     .pipe(gulp.dest(PATH.JSX.OUTPUT))
 })
@@ -114,9 +125,7 @@ gulp.task('browser', function() {
     open: false,
     server: {
       baseDir: DIST,
-      middleware: [
-        historyFallback()
-      ]
+      middleware: [historyFallback()]
     }
   })
 })

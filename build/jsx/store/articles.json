@@ -1,5 +1,12 @@
 [
 	{
+		"id": 2168,
+		"date": "May 30, 2017",
+		"imageId": 2206,
+		"slug": "keys-values-dan-entries-di-javascript",
+		"title": "Ambil Keys atau Values dari Javascript Object"
+	},
+	{
 		"id": 2139,
 		"date": "April 30, 2017",
 		"imageId": 2161,

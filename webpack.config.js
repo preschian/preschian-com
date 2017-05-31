@@ -1,8 +1,8 @@
 var webpack = require('webpack')
-var path    = require('path')
+var path = require('path')
 
-var BUILD_DIR   = path.join(__dirname, 'build/jsx')
-var DIST_DIR    = path.join(__dirname, 'dist/assets/js')
+var BUILD_DIR = path.join(__dirname, 'build/jsx')
+var DIST_DIR = path.join(__dirname, 'dist/assets/js')
 
 var config = {
   devtool: 'cheap-module-source-map',
@@ -14,24 +14,27 @@ var config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress:{
+      compress: {
         warnings: false
       }
     })
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?/,
-      include: BUILD_DIR,
-      loader: 'babel'
-    }, {
-      test: /\.json$/,
-      loader: 'json-loader'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?/,
+        include: BUILD_DIR,
+        loader: 'babel'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
+    ]
   }
 }
 

@@ -7,14 +7,13 @@ import PostData from './PostData'
 @observer
 export default class Post extends React.Component {
   componentWillMount() {
-    if (this.props.params.post != PostData.slug)
-      PostData.fetchPost(this.props.params.post)
+    PostData.fetchPost(this.props.params.post)
   }
 
   render() {
     const { title, date, content, featured } = PostData
 
-    const postBackground = {backgroundImage: `url('${featured}')`}
+    const postBackground = { backgroundImage: `url('${featured}')` }
 
     // scroll to top page
     window.scrollTo(0, 0)
@@ -24,7 +23,10 @@ export default class Post extends React.Component {
       window.Prism.highlightAll()
 
       // disqus comment
-      var d = document, s = d.createElement('script'); s.src = '//preschian.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s)
+      var d = document, s = d.createElement('script')
+      s.src = '//preschian.disqus.com/embed.js'
+      s.setAttribute('data-timestamp', +new Date())
+      ;(d.head || d.body).appendChild(s)
     }
 
     return (
@@ -34,7 +36,8 @@ export default class Post extends React.Component {
           meta={[
             { name: 'twitter:site', content: '@preschian' },
             { name: 'twitter:card', content: 'summary' }
-          ]} />
+          ]}
+        />
 
         <div className="post-detail post-background" style={postBackground}>
           <div className="post-text">
@@ -44,11 +47,11 @@ export default class Post extends React.Component {
         </div>
         <div
           className="post-content"
-          dangerouslySetInnerHTML={{__html: content}}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
         <div className="post-content">
-          <br/>
-          <div id="disqus_thread"></div>
+          <br />
+          <div id="disqus_thread" />
         </div>
       </div>
     )

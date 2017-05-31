@@ -12,4 +12,4 @@ class Loading {
   }
 }
 
-export default new Loading
+export default new Loading()

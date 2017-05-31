@@ -30,31 +30,33 @@ class HomeData {
   }
 
   nextPage = () => {
-    this.renderHome(this.page += 1)
+    this.renderHome((this.page += 1))
   }
 
   prevPage = () => {
-    this.renderHome(this.page -= 1)
+    this.renderHome((this.page -= 1))
   }
 
   @action renderHome(page = this.page, eachPage = this.eachPage) {
     // clear posts because show posts based on @observable achPage
     this.posts = []
 
-    const start = (eachPage * page) - eachPage
+    const start = eachPage * page - eachPage
     const end = eachPage * page - 1
 
-    for (let i = start; i <= end; i ++) {
+    for (let i = start; i <= end; i++) {
       try {
         const article = articles[i]
 
-        this.posts.push(new Post(
-          article.title,
-          article.imageID,
-          article.date,
-          article.slug,
-          article.id
-        ))
+        this.posts.push(
+          new Post(
+            article.title,
+            article.imageID,
+            article.date,
+            article.slug,
+            article.id
+          )
+        )
       } catch (e) {
         return
       }
