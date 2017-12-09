@@ -1,0 +1,9 @@
+{
+  "emmet.syntaxProfiles": { "javascript": "javascriptreact" },
+  "emmet.triggerExpansionOnTab": true,
+  "prettier.eslintIntegration": true,
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.semi": false
+}
