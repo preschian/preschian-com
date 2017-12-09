@@ -1,7 +1,5 @@
 # preschian-com
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/086f812c67754233a3354efab29a0bd2)](https://www.codacy.com/app/preschian/preschian-com?utm_source=github.com&utm_medium=referral&utm_content=preschian/preschian-com&utm_campaign=badger)
-
 revamp my blog using ReactJS https://preschian.com/
 
 ### another repo
