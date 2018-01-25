@@ -3,7 +3,11 @@
   "description": "Preschian Febryantara Blog",
   "version": "2.0.0",
   "author": "Preschian Febryantara",
-  "keywords": ["gatsby", "graphql", "reactjs"],
+  "keywords": [
+    "gatsby",
+    "graphql",
+    "reactjs"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -16,8 +20,14 @@
     "alias": "preschian.com"
   },
   "babel": {
-    "presets": ["react", "env"],
-    "plugins": ["emotion", "transform-decorators-legacy"]
+    "presets": [
+      "react",
+      "env"
+    ],
+    "plugins": [
+      "emotion",
+      "transform-decorators-legacy"
+    ]
   },
   "dependencies": {
     "babel-eslint": "^8.0.2",
@@ -46,6 +56,6 @@
     "react-emotion": "^8.0.5"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "prettier": "^1.10.2"
   }
 }
