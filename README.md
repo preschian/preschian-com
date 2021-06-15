@@ -1,6 +1,6 @@
 # preschian-com
 
-revamp my blog using ReactJS https://preschian.com/
+old version for https://preschian.com/
 
 ### another repo
 
