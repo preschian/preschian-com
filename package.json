@@ -16,9 +16,6 @@
     "develop": "gatsby develop",
     "deploy": "yarn run build && mv ./public ./preschian-com && now ./preschian-com && now alias"
   },
-  "now": {
-    "alias": "preschian.com"
-  },
   "babel": {
     "presets": [
       "react",
